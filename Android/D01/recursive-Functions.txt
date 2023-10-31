@@ -1,0 +1,93 @@
+//1-
+fun sumOfDigits(n: Int): Int {
+    if (n < 10) {
+        return n
+    } else {
+        return n % 10 + sumOfDigits(n / 10)
+    }
+}
+
+//2 -power
+fun power(base: Double, exponent: Int): Double {
+    if (exponent == 0) {
+        return 1.0
+    } else if (exponent > 0) {
+        return base * power(base, exponent - 1)
+    } else {
+        return 1.0 / (base * power(base, -exponent - 1))
+    }
+}
+
+//3 -Sumof element array
+fun calculateSum(arr: IntArray ,index: Int=0):Int{
+    if(index == arr.size)
+    {
+        return 0
+    }else{
+        return arr[index] + calculateSum(arr, index + 1)
+}
+}
+
+//4 -smallest element in array
+fun smallestElement(arr: IntArray ,index:Int =0): Int{
+        if (index == arr.size - 1) {
+        return arr[index]
+    } else {
+        val smallest = smallestElement(arr, index + 1)
+        return if (arr[index] < smallest) arr[index] else smallest
+    }
+}
+
+//5 -permutations
+fun generatePermutations(input: String): List<String> {
+    if (input.length <= 1) {
+        return listOf(input)
+    }
+
+    val permutations = mutableListOf<String>()
+    for (i in input.indices) {
+        val char = input[i]
+        val remaining = input.substring(0, i) + input.substring(i + 1)
+        val subPermutations = generatePermutations(remaining)
+        for (perm in subPermutations) {
+            permutations.add(char + perm)
+        }
+    }
+    return permutations
+}
+
+fun main() {
+    //1
+    val number = 12345
+    val digitSum = sumOfDigits(number)
+    println("The sum of the digits of $number is $digitSum")
+    
+    //2
+    val base = 3.0
+    val exponent = 3
+    val result = power(base, exponent)
+    println("$base^$exponent = $result")
+    
+    //3
+    val array = intArrayOf(1,2,3,4,5,6,7)
+    val sum = calculateSum(array)
+    println(sum)
+    
+    //4
+    val array1 = intArrayOf(5, 2, 8, 1, 7, 3)
+    val smallest = smallestElement(array1)
+    println("The smallest element in the array is: $smallest")
+    
+    //5
+    val input = "abc"
+    val permutations = generatePermutations(input)
+    for (perm in permutations) {
+        println(perm)
+    
+}
+    
+
+
+        
+    
+}

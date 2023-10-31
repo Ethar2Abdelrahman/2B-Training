@@ -1,0 +1,56 @@
+fun main() {
+////1 -multply 2 number
+
+//   val multiply: (Int, Int) -> Int = { a, b -> a * b }
+
+//     val number1 = 5
+//     val number2 = 3
+
+//     val result = multiply(number1, number2)
+    
+//     println("The result of multiplying $number1 and $number2 is: $result")
+    
+    
+ ////2
+//     val square: (Int) -> Int = { it * it }  
+
+//     val number = 5
+
+//     val result = square(number)
+    
+//     println("The square of $number is: $result")
+
+    
+////3
+    val isEven: (Int) -> Boolean = { it % 2 == 0 }  
+
+    val number = 6
+
+    val result = isEven(number)
+
+    if (result) {
+        println("$number is even.")
+    } else {
+        println("$number is not even.")
+    }
+
+    
+ ////4
+     val numbers = listOf(10, 20, 30, 40, 50)
+
+    val calculateAve: (List<Int>) -> Double = { list ->
+        val sum = list.sum()
+        sum.toDouble() / list.size
+    }
+
+    val average = calculateAve(numbers)
+
+    println("The average of the numbers is: $average")
+
+ ////5
+    val words = listOf("Kotlin", "Java", "C sharp", "JavaScript")
+
+    val filteredWords = words.filter { it.startsWith("K", ignoreCase = true) }
+
+    println("Words starting with 'K': $filteredWords")
+}

@@ -1,0 +1,131 @@
+/**
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+
+//1- print name
+fun welcom(name:String){
+    print("Hello $name ") 
+}
+
+//2- even
+fun evenNumber(numbers: IntArray){  
+    for (i in numbers){
+    if (i % 2 == 0){
+        print(i)
+    }
+    }
+}
+
+//3 - vowles count
+fun countVowels(input: String) : Int{
+    val vowels = "aeiouAEIOU"
+    var count = 0
+    
+    for (char in input){
+        if(char in vowels){
+            count++
+        }
+    }
+    return count
+}
+
+//4 -reverse
+fun reversedString(input: String): String{
+    return input.reversed()
+}
+
+//5 - palindrome
+fun  palindrome(input: String): Boolean{
+   val cleanInput = input.replace(Regex("[^A-Za-z0-9]"), "").lowercase()
+   val reversedInput = cleanInput.reversed()
+    return cleanInput == reversedInput
+}
+
+  //6 -print message
+ fun printMessage(message: String){
+     println(message)
+}
+ 
+ //7-  area of a rectangle
+//  fun calculateArea(lenght: Double=0.0 ,width: Double=0.0) :Double{
+//      return lenght*width
+//  }
+ 
+ //8- calculate BMI
+ fun calculateBMI(height: Double , weight: Double):Double{
+         if (height <= 0.0 || weight <= 0.0) {
+        return 0.0
+    }
+    
+    val bmi = weight / (height * height)
+    return bmi
+ }
+ 
+ //9- area of circle
+ fun calculateArea(raduis: Double ,pi: Double = 3.14): Double{
+        if (raduis <= 0.0) {
+        return 0.0
+    }
+     return pi * raduis * raduis
+ }
+ 
+ //10 -PersonDetails
+ fun printDetails(name: String ,age: Int, city: String){
+     println("Name: $name")
+     println("Age: $age")
+     println("city: $city")
+ }
+
+fun main() {
+    //1
+    var name= "Ethar"
+    welcom(name)
+    println()
+    
+    //2
+     val numbers = intArrayOf(1,2,3,4,5,6,7,8,9,10)
+    evenNumber(numbers)
+     println()
+     
+     //3
+     val inputString = "Ethar Abdelrahman"
+     print ( countVowels(inputString))
+      println()
+     
+     //4
+     val stringToReverse = "Hello, Kotlin"
+     val reversed = reversedString(stringToReverse)
+       println("Reversed string: $reversed")
+       println() 
+       
+     //5
+     val string1 = "hello"
+     val string2 = "vovov"
+    println(palindrome(string2))
+    println(palindrome(string1))
+    
+    //6
+    print(printMessage("helooooo"))
+    
+    //7
+//     val area1 =calculateArea()
+//     val area2 =calculateArea(3.0,4.0)
+//     println(area1)
+//     println(area2)
+    
+    //8
+    val bmi = calculateBMI(1.75, 75.0) 
+    println("BMI : $bmi")
+    
+    //9
+    val area1 = calculateArea(5.0)
+    val area2 = calculateArea(3.0 ,3.14)
+    println(area1)
+    println(area2)
+    
+    //10
+    printDetails(name="Ethar" , age=24, city="Suez")
+    
+    
+}
